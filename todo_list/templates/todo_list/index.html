@@ -2,4 +2,9 @@
 
 {% block body %}
     <h1 style='text-align: center; color: red;'>Hello</h1>
+    {% for user in users %}
+        <ul style='list-style: none;'>
+            <li>User: {{user.id}} {{user.username}} </li>
+        </ul>
+    {% endfor %}
 {% endblock %}
