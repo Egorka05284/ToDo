@@ -1,3 +1,31 @@
-h1 {
-    color: yellow;
+html {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+header {
+    text-align: left;
+    display: block;
+    background-color: black;
+    color: white;
+    border-bottom: 2px;
+}
+
+section {
+    background-color: chartreuse;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    display: grid;
+    
+}
+
+
+footer {
+    display: block;
+    text-align: right;
+    background-color: blue;
+    color: red;
+    border-top: 2px;
 }
