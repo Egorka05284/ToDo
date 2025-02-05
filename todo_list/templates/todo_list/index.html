@@ -1,38 +1,84 @@
 {% extends "todo_list/layout.html" %}
 
 {% block body %}
-    
-    
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">ToDo</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  <a class="nav-link" href="#">Log Out</a>
-                </div>
-              </div>
-            </div>
-          </nav>
-    </header>
-    <section>
-        <h1>Tasks</h1>
-        <div class="tasks">
-            {% for task in tasks %}
-            <ul>
-                <li>{{task.username}} - {{task.task}}</li>
-            </ul>
-            {% endfor %}
 
+
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ToDo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Log Out</a>
         </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<section>
+  <div class="left-chapter">
+    As we see, we're fine
+  </div>
+  <div class="content">
+    <h1>Tasks</h1>
+    {% for task in tasks %}
+    <ul>
+      <li>{{task.username}} - {{task.task}}</li>
+    </ul>
+    {% endfor %}
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum incidunt dolores velit accusamus laudantium neque
+    doloribus nesciunt quis quo, reiciendis corrupti repellendus voluptatum qui perspiciatis iure odio impedit quibusdam
+    cupiditate aliquid. Nisi, blanditiis soluta delectus, nesciunt eos quidem explicabo doloremque cum dolore totam quae
+    nostrum reprehenderit tempore alias dolores. Suscipit magni odit voluptas, eligendi debitis esse ipsum
+    necessitatibus quaerat eveniet quos ipsam enim vel maiores soluta, a exercitationem, labore molestiae nesciunt in?
+    Doloribus, nam laboriosam. Reiciendis saepe eum sunt officiis perferendis quibusdam nisi sequi. Veniam nemo
+    reiciendis vero ullam temporibus distinctio odio sed laborum iusto eligendi optio dolorem quaerat nam officiis
+    impedit ipsa numquam ad, tenetur illum, adipisci quisquam placeat quod officia. Similique quidem laudantium esse?
+    Necessitatibus asperiores distinctio quos neque aperiam deleniti cumque molestiae nobis cum placeat, repudiandae
+    quia similique eaque magni eum obcaecati consequuntur blanditiis debitis ad illo, laboriosam quasi iure at officia.
+    Aperiam, odio cum. Dolores nisi deleniti assumenda facere quasi. Praesentium quas, enim eligendi consectetur
+    adipisci quidem similique cum. Tenetur, iste aspernatur possimus dolorum illum ducimus ex dignissimos suscipit
+    aliquam impedit fuga reiciendis, omnis nulla. Voluptates atque ratione error! Dignissimos deserunt reiciendis
+    architecto quisquam, numquam corporis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum incidunt dolores velit accusamus laudantium neque
+    doloribus nesciunt quis quo, reiciendis corrupti repellendus voluptatum qui perspiciatis iure odio impedit quibusdam
+    cupiditate aliquid. Nisi, blanditiis soluta delectus, nesciunt eos quidem explicabo doloremque cum dolore totam quae
+    nostrum reprehenderit tempore alias dolores. Suscipit magni odit voluptas, eligendi debitis esse ipsum
+    necessitatibus quaerat eveniet quos ipsam enim vel maiores soluta, a exercitationem, labore molestiae nesciunt in?
+    Doloribus, nam laboriosam. Reiciendis saepe eum sunt officiis perferendis quibusdam nisi sequi. Veniam nemo
+    reiciendis vero ullam temporibus distinctio odio sed laborum iusto eligendi optio dolorem quaerat nam officiis
+    impedit ipsa numquam ad, tenetur illum, adipisci quisquam placeat quod officia. Similique quidem laudantium esse?
+    Necessitatibus asperiores distinctio quos neque aperiam deleniti cumque molestiae nobis cum placeat, repudiandae
+    quia similique eaque magni eum obcaecati consequuntur blanditiis debitis ad illo, laboriosam quasi iure at officia.
+    Aperiam, odio cum. Dolores nisi deleniti assumenda facere quasi. Praesentium quas, enim eligendi consectetur
+    adipisci quidem similique cum. Tenetur, iste aspernatur possimus dolorum illum ducimus ex dignissimos suscipit
+    aliquam impedit fuga reiciendis, omnis nulla. Voluptates atque ratione error! Dignissimos deserunt reiciendis
+    architecto quisquam, numquam corporis. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum incidunt dolores velit accusamus laudantium neque
+    doloribus nesciunt quis quo, reiciendis corrupti repellendus voluptatum qui perspiciatis iure odio impedit quibusdam
+    cupiditate aliquid. Nisi, blanditiis soluta delectus, nesciunt eos quidem explicabo doloremque cum dolore totam quae
+    nostrum reprehenderit tempore alias dolores. Suscipit magni odit voluptas, eligendi debitis esse ipsum
+    necessitatibus quaerat eveniet quos ipsam enim vel maiores soluta, a exercitationem, labore molestiae nesciunt in?
+    Doloribus, nam laboriosam. Reiciendis saepe eum sunt officiis perferendis quibusdam nisi sequi. Veniam nemo
+    reiciendis vero ullam temporibus distinctio odio sed laborum iusto eligendi optio dolorem quaerat nam officiis
+    impedit ipsa numquam ad, tenetur illum, adipisci quisquam placeat quod officia. Similique quidem laudantium esse?
+    Necessitatibus asperiores distinctio quos neque aperiam deleniti cumque molestiae nobis cum placeat, repudiandae
+    quia similique eaque magni eum obcaecati consequuntur blanditiis debitis ad illo, laboriosam quasi iure at officia.
+    Aperiam, odio cum. Dolores nisi deleniti assumenda facere quasi. Praesentium quas, enim eligendi consectetur
+    adipisci quidem similique cum. Tenetur, iste aspernatur possimus dolorum illum ducimus ex dignissimos suscipit
+    aliquam impedit fuga reiciendis, omnis nulla. Voluptates atque ratione error! Dignissimos deserunt reiciendis
+    architecto quisquam, numquam corporis.
+  </div>
+  <div class="right-chapter">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa rem doloribus magnam, vitae quae aut ullam illum id
+    aperiam magni amet velit harum nisi vel. Enim nulla quod et accusantium.
+  </div>
+</section>
+<footer>
+  End
+</footer>
 
-    </section>
-    <footer>
-        End
-    </footer>
-    
 {% endblock %}
