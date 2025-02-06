@@ -1,4 +1,5 @@
 html {
+    background: linear-gradient(106deg, #1f7539 44%, #ee00ff 60%);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -6,6 +7,11 @@ html {
 
 header {
     border-bottom: solid 1px black;
+}
+
+.entire {
+    resize:both;
+    overflow:auto
 }
 
 section {

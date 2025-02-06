@@ -11,7 +11,7 @@ class User(models.Model):
 class Task(models.Model):
     task = models.CharField(max_length=50)
     priority = models.IntegerField()
-    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Users')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Users')
 
     def __str__(self) -> str:
         return f"{self.task} - {self.priority}"
