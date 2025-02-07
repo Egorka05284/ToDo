@@ -25,8 +25,8 @@ section {
 footer {
     display: block;
     text-align: right;
-    background-color: blue;
-    color: red;
+    background-color: red;
+    color: rgb(202, 22, 22);
     border-top: solid 1px black;
     box-sizing: border-box;
 }
