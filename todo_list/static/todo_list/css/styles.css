@@ -1,5 +1,5 @@
 html {
-    background-color: #742e94;
+    background: white;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -17,24 +17,8 @@ section {
 }
 
 
-footer {
-    display: block;
-    text-align: right;
-    background-color: rgb(206, 202, 202);
-    color: black;
-    border-top: solid 1px black;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 10px 0;
-}
-
-#cpright {
-    text-align: center;
-}
-
 .left-chapter {
-    background: linear-gradient(155deg, #d82222 10%, #742e94 100%);
+    background: wheat;
     width: 10%;
     min-height: 100%;
     display: block;
@@ -43,7 +27,7 @@ footer {
 
 
 .content {
-    background: radial-gradient(#d82222 10%, #742e94 86%, #742e94 100%);
+    background: whitesmoke;
     text-align: center;
     width: 80%;
     list-style: none;
@@ -54,9 +38,10 @@ footer {
 }
 
 .right-chapter {
-    background: linear-gradient(155deg, #d82222 10%, #742e94 100%);;
+    background: wheat;
     width: 10%;
     min-height: 100%;
     display: block;
     border-left: solid 1px black;
 }
+

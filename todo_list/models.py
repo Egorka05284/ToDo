@@ -5,7 +5,7 @@ class User(models.Model):
     username = models.CharField(max_length=20)
     _password = models.CharField(max_length=30)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.username}"
     
 class Task(models.Model):

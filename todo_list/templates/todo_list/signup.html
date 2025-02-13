@@ -1,0 +1,25 @@
+{% extends "todo_list/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Signup</title>
+{% endblock head %}
+
+{% block body %}
+    <div>
+        <div class='form-app'>
+            <h1>Signup</h1>
+      <form action="{% url 'todo_list:signup' %}" method="post">
+        {% csrf_token %}
+        <input type="text", name="username", placeholder="Username">
+        <input type="password", name="password", placeholder="Password">
+        <input type="submit", value="Sign up">
+      </form>
+      <span>
+        <h5>Already have account? <a href="http://127.0.0.1:8000/todo/login">Click here</a></h5>
+      </span>
+        
+      
+        </div>
+    </div>
+{% endblock body %}

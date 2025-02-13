@@ -1,0 +1,21 @@
+footer {
+    display: block;
+    text-align: right;
+    background-color: rgb(206, 202, 202);
+    color: black;
+    border-top: solid 1px black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+} 
+
+#cpright {
+    text-align: center;
+}
+
+#clrmode {
+    display: flexbox;
+    text-align: left;
+    color: black;
+}
