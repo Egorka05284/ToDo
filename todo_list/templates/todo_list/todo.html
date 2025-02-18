@@ -5,7 +5,7 @@
 <title>ToDo</title>
 <link rel="stylesheet" href=" {% static 'todo_list/css/footerstyle.css' %} ">
 <link rel="stylesheet" href=" {% static 'todo_list/css/styles.css' %} ">
-<script type='text/javascript' src="{% static 'todo_list/js/daymoonscript.js' %}"></script>
+{% comment %} <script type='text/javascript' src="{% static 'todo_list/js/daymoonscript.js' %}"></script> {% endcomment %}
 {% endblock head %}
 
 {% block body %}
@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Log Out</a>
+          <a class="nav-link" href="{% url "todo_list:index" %}">Log Out</a>
         </div>
       </div>
     </div>
@@ -86,9 +86,9 @@
   </div>
 </section>
 <footer>
-  <div id="clrmode">
+  {% comment %} <div id="clrmode">
     <button id='nd'>S/M</button>
-  </div>
+  </div> {% endcomment %}
   <div id="cpright">
     CopyRight © ToDo 2025
 

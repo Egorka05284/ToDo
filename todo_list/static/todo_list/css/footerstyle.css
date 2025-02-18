@@ -1,21 +1,23 @@
 footer {
+    box-sizing: border-box;
     display: block;
     text-align: right;
     background-color: rgb(206, 202, 202);
     color: black;
     border-top: solid 1px black;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
     padding: 10px 0;
+    overflow: hidden;
 } 
 
 #cpright {
     text-align: center;
 }
 
-#clrmode {
+/* #clrmode {
     display: flexbox;
     text-align: left;
     color: black;
-}
+} */

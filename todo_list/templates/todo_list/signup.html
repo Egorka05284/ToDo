@@ -11,12 +11,12 @@
             <h1>Signup</h1>
       <form action="{% url 'todo_list:signup' %}" method="post">
         {% csrf_token %}
-        <input type="text", name="username", placeholder="Username">
-        <input type="password", name="password", placeholder="Password">
+        <p><input type="text", name="username", placeholder="Username"></p>
+        <p><input type="password", name="password", placeholder="Password"></p>
         <input type="submit", value="Sign up">
       </form>
       <span>
-        <h5>Already have account? <a href="http://127.0.0.1:8000/todo/login">Click here</a></h5>
+        <h5>Already have account? <a href="{% url "todo_list:index" %}">Click here</a></h5>
       </span>
         
       

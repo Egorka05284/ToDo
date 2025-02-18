@@ -1,0 +1,18 @@
+[
+    {
+        "model": "todo_list.users",
+        "pk": 1,
+        "fields": {
+            "username": "zsfsfz",
+            "_password": "szsfzfsf"
+        }
+    },
+    {
+        "model": "todo_list.users",
+        "pk": 2,
+        "fields": {
+            "username": "Vasya",
+            "_password": "dsjhksdksdg"
+        }
+    }
+]
