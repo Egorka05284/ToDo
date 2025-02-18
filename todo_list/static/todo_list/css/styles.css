@@ -1,5 +1,9 @@
 html {
+<<<<<<< HEAD
     background: linear-gradient(106deg, #1f7539 44%, #ee00ff 60%);
+=======
+    background: white;
+>>>>>>> 5dd4162
     padding: 0;
     margin: 0;
     list-style: none;
@@ -22,17 +26,8 @@ section {
 }
 
 
-footer {
-    display: block;
-    text-align: right;
-    background-color: red;
-    color: rgb(202, 22, 22);
-    border-top: solid 1px black;
-    box-sizing: border-box;
-}
-
 .left-chapter {
-    background: linear-gradient(155deg, #d82222 10%, #742e94 100%);
+    background: wheat;
     width: 10%;
     min-height: 100%;
     display: block;
@@ -41,9 +36,10 @@ footer {
 
 
 .content {
-    background: radial-gradient(#d82222 10%, #742e94 86%, #742e94 100%);
+    background: whitesmoke;
     text-align: center;
     width: 80%;
+    list-style: none;
 }
 
 .tasks > ul > li {
@@ -51,9 +47,10 @@ footer {
 }
 
 .right-chapter {
-    background: linear-gradient(155deg, #d82222 10%, #742e94 100%);;
+    background: wheat;
     width: 10%;
     min-height: 100%;
     display: block;
     border-left: solid 1px black;
 }
+

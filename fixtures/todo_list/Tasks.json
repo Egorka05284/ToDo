@@ -1,0 +1,38 @@
+[
+    {
+        "model": "todo_list.tasks",
+        "pk": 1,
+        "fields": {
+            "task": "sdfsdgsdg",
+            "priority": 2,
+            "user": 1
+        }
+    },
+    {
+        "model": "todo_list.tasks",
+        "pk": 2,
+        "fields": {
+            "task": "Kill someone",
+            "priority": 10,
+            "user": 1
+        }
+    },
+    {
+        "model": "todo_list.tasks",
+        "pk": 3,
+        "fields": {
+            "task": "fgfhfhfh",
+            "priority": 1,
+            "user": 2
+        }
+    },
+    {
+        "model": "todo_list.tasks",
+        "pk": 4,
+        "fields": {
+            "task": "1234242",
+            "priority": 0,
+            "user": 2
+        }
+    }
+]

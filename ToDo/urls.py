@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from ToDo.settings import DEBUG
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todo/', include('todo_list.urls'))
+    path('todo/', include('todo_list.urls', namespace='todo_list')),
 ]
+
+if DEBUG:
+    urlpatterns += [path("__debug__/", include("debug_toolbar.urls")),]
