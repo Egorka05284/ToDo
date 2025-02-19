@@ -1,17 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class Users(models.Model):
-    username = models.CharField(max_length=20)
-    _password = models.CharField(max_length=30)
+class Users(AbstractUser):
 
-    def __str__(self) -> str:
-        return f"{self.username}"
-    
     class Meta:
         db_table = 'user'
         verbose_name = 'user'
         verbose_name_plural = 'users'
+    
+    
+    def __str__(self) -> str:
+        return f"{self.username}"
     
 class Tasks(models.Model):
     task = models.CharField(max_length=50)

@@ -21,8 +21,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="{% url "todo_list:index" %}">Log Out</a>
+          {% if user.is_admin or user.is_staff %}
+          <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Administration</a>
+          {% endif %}
+          <a class="nav-link" href="{% url "todo_list:logout" %}">Log Out</a>
         </div>
       </div>
     </div>

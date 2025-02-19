@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "username": "zsfsfz",
-            "_password": "szsfzfsf"
+            "password": "szsfzfsf"
         }
     },
     {
@@ -12,7 +12,7 @@
         "pk": 2,
         "fields": {
             "username": "Vasya",
-            "_password": "dsjhksdksdg"
+            "password": "dsjhksdksdg"
         }
     }
 ]

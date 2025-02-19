@@ -7,16 +7,34 @@
 
 {% block body %}
 <div>
-  <div class='form-app'>
+  <div class='row justify-content-center'>
     <h1>Login</h1>
-      <form action="{% url 'todo_list:index' %}", method="post">
-        {% csrf_token %}
-        <p><input type="text", name="username", placeholder="Username"></p>
-        <p><input type="password", name="password", placeholder="Password"></p>
-        <input type="submit", value="Sign in">
-      </form>
-      <a href="">Forgot Password</a>
-      <a href="{% url 'todo_list:signup' %}">Signup</a>
+    <form action="{% url 'todo_list:index' %}" , method="post">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="alert alert-danger alert-dismissible fade show custom-shadow" role="alert">
+              {{form.non_field_errors}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class='mb-3'>
+        <label for='{{ form.username.id_for_label }}' class='form-label'>Username</label>
+        {{ form.username }}
+      </div>
+      <div class='mb-3'>
+        <label for='{{ form.password.id_for_label }}' class='form-label'>Password</label>
+        {{ form.password }}
+      </div>
+      <button type='submit' class='btn btn-dark btn-block'>Sign in</button>
+    </form>
+    <a href="">Forgot Password</a>
+    <a href="{% url 'todo_list:signup' %}">Signup</a>
   </div>
 </div>
 {% endblock body %}
