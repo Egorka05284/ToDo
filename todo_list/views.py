@@ -16,18 +16,21 @@ def index(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
+                # messages.success(request, f"{user.username}, You signed in successfully")
                 return HttpResponseRedirect(reverse('todo_list:todo'))
     else:
         form = UserLoginForm()
     context = {'form': form}
     return render(request, 'todo_list/index.html', context)
 
-# @login_required
+
 def todo(request):
-    # user = User.objects.get(id=username)
     if not request.user.is_authenticated:
         return redirect(reverse('todo_list:index'))
-    tasks = Tasks.objects.all() 
+    user = request.user
+    user_id = Users.objects.filter(username=user).values_list('id', flat=True).first()
+    tasks = Tasks.objects.filter(user_id=user_id)
+    print(user)
     return render(request, 'todo_list/todo.html', {
         'tasks': tasks,
     })
@@ -49,6 +52,6 @@ def signup(request):
 
 @login_required
 def logout(request):
-    messages.success(request, f"{request.user.username}, You logged out")
+    # messages.success(request, f"{request.user.username}, You logged out")
     auth.logout(request)
     return redirect(reverse('todo_list:index'))
