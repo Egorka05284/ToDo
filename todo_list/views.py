@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from todo_list.forms import UserLoginForm, UserSignupForm
+from todo_list.forms import NewTaskForm, UserLoginForm, UserSignupForm
 from todo_list.models import Users, Tasks
 
 # Create your views here.
@@ -30,7 +30,6 @@ def todo(request):
     user = request.user
     user_id = Users.objects.filter(username=user).values_list('id', flat=True).first()
     tasks = Tasks.objects.filter(user_id=user_id)
-    print(user)
     return render(request, 'todo_list/todo.html', {
         'tasks': tasks,
     })
@@ -55,3 +54,21 @@ def logout(request):
     # messages.success(request, f"{request.user.username}, You logged out")
     auth.logout(request)
     return redirect(reverse('todo_list:index'))
+
+
+def add_task(request):
+    form = NewTaskForm()
+    if request.method == 'GET':
+        form = NewTaskForm()
+    
+    if request.method == "POST":
+        form = NewTaskForm(request.POST)
+        if form.is_valid():
+            form = form.cleaned_data
+            object = Tasks()
+            object.task = form['task']
+            object.priority = form['priority']
+            object.user_id = Users.objects.filter(username=request.user).values_list('id', flat=True).first()
+            object.save()
+            return redirect(reverse('todo_list:todo'))
+    return render(request, 'todo_list/addtask.html', {'form': form})

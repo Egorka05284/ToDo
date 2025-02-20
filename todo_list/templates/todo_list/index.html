@@ -2,11 +2,15 @@
 {% load static %}
 
 {% block head %}
-<title>Login</title>
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static "todo_list/css/userformsstyles.css" %}">
 {% endblock head %}
 
 {% block body %}
-<div>
+<div class='pwelcome'>
+  <p>Welcome to ToDo app</p>
+</div>
+<div class='container-form form-check-inline'>
   <div class='row justify-content-center'>
     <h1>Login</h1>
     <form action="{% url 'todo_list:index' %}" , method="post">

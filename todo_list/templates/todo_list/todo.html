@@ -24,6 +24,7 @@
           {% if user.is_admin or user.is_staff %}
           <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Administration</a>
           {% endif %}
+          <a class="nav-link" href="{% url "todo_list:add_task" %}">Add new task</a>
           <a class="nav-link" href="{% url "todo_list:logout" %}">Log Out</a>
         </div>
       </div>
@@ -32,21 +33,18 @@
 </header>
 <section>
   <div class="left-chapter">
-    As we see, we're fine
   </div>
   <div class="content">
     <h1>Tasks</h1>
     {% for task in tasks %}
     <ul>
-      <li style='list-style: none;'>{{task.task}}</li>
+      <li style='list-style: none;'>{{task.task}} - {{task.priority}}</li>
     </ul>
     {% empty %}
-    There's no Tasks
+    <h2>There's no Tasks</h2>
     {% endfor %}
   </div>
   <div class="right-chapter">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa rem doloribus magnam, vitae quae aut ullam illum id
-    aperiam magni amet velit harum nisi vel. Enim nulla quod et accusantium.
   </div>
 </section>
 <footer>

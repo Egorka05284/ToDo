@@ -1,33 +1,28 @@
 html {
-<<<<<<< HEAD
-    background: linear-gradient(106deg, #1f7539 44%, #ee00ff 60%);
-=======
+    
     background: white;
->>>>>>> 5dd4162
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
+
 header {
     border-bottom: solid 1px black;
 }
 
-.entire {
-    resize:both;
-    overflow:auto
-}
 
 section {
     font-family:'Times New Roman', Times, serif;
     font-size: large;
     display: flex;
-    
+    width: 100%;
+    height: 89.2vh;
 }
 
 
 .left-chapter {
-    background: wheat;
+    background: black;
     width: 10%;
     min-height: 100%;
     display: block;
@@ -36,7 +31,7 @@ section {
 
 
 .content {
-    background: whitesmoke;
+    background: rgba(190, 174, 174, 0.637);
     text-align: center;
     width: 80%;
     list-style: none;
@@ -47,7 +42,7 @@ section {
 }
 
 .right-chapter {
-    background: wheat;
+    background: black;
     width: 10%;
     min-height: 100%;
     display: block;

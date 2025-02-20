@@ -1,0 +1,24 @@
+body {
+    background: sandybrown;
+}
+
+
+.pwelcome {
+    text-align: center;
+    font-style: italic;
+    font-size: 2em;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 8%;
+}
+
+.container-form {
+    padding: 75px;
+    margin: 40%;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    background-color: chartreuse;
+    border-radius: 50px;
+    position: relative;
+    margin-top: 5%;
+}

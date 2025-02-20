@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-from todo_list.models import Users
+from todo_list.models import Tasks, Users
 
 
 class UserLoginForm(AuthenticationForm):
@@ -22,3 +22,10 @@ class UserSignupForm(UserCreationForm):
     username = forms.CharField()
     password1 = forms.CharField()
     password2 = forms.CharField()
+
+class NewTaskForm(forms.Form):
+    class Meta:
+        model = Tasks
+        fields = ['task', 'priority']
+    task = forms.CharField(label="Task", required=True, widget=forms.TextInput(attrs={'placeholder': "Enter new task", 'name':'task'}))
+    priority = forms.IntegerField(label="Priority", min_value=1, max_value=10, widget=forms.TextInput(attrs={'placeholder': "Choose priority", 'name':'priority'}))
