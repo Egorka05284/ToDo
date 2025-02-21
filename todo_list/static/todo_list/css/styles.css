@@ -1,5 +1,5 @@
 html {
-    
+
     background: white;
     padding: 0;
     margin: 0;
@@ -13,7 +13,7 @@ header {
 
 
 section {
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: large;
     display: flex;
     width: 100%;
@@ -35,10 +35,11 @@ section {
     text-align: center;
     width: 80%;
     list-style: none;
+    font-size: xx-large;
 }
 
-.tasks > ul > li {
-    list-style: none;
+li {
+    text-align: left;
 }
 
 .right-chapter {
@@ -49,3 +50,13 @@ section {
     border-left: solid 1px black;
 }
 
+
+#del-but:link {
+    text-decoration: none;
+    color: white;
+}
+
+
+.btn {
+    float: right;
+}
