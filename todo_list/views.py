@@ -1,60 +1,57 @@
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.contrib.auth.views import LoginView
+from django.http.response import HttpResponse as HttpResponse
 from django.shortcuts import redirect, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import TemplateView, CreateView
 from todo_list.forms import NewTaskForm, UserLoginForm, UserSignupForm
 from todo_list.models import Users, Tasks
 
 
 # Create your views here.
-def index(request):
-
-    if request.method == "POST":
-        form = UserLoginForm(data=request.POST)
-        if form.is_valid():
-            username = request.POST["username"]
-            password = request.POST["password"]
-            user = auth.authenticate(username=username, password=password)
-            if user:
-                auth.login(request, user)
-                # messages.success(request, f"{user.username}, You signed in successfully")
-                return HttpResponseRedirect(reverse("todo_list:todo"))
-    else:
-        form = UserLoginForm()
-    context = {"form": form}
-    return render(request, "todo_list/index.html", context)
 
 
-def todo(request):
-    if not request.user.is_authenticated:
-        return redirect(reverse("todo_list:index"))
-    user = request.user
-    user_id = Users.objects.filter(username=user).values_list("id", flat=True).first()
-    tasks = Tasks.objects.filter(user_id=user_id)
-    return render(
-        request,
-        "todo_list/todo.html",
-        {
-            "tasks": tasks,
-        },
-    )
+class TodoView(TemplateView):
+    
+    template_name = "todo_list/todo.html"
+
+    def get(self, request, *args, **kwargs) -> HttpResponse:
+        if not request.user.is_authenticated:
+            return redirect(reverse('todo_list:index'))
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs) -> dict:
+        
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        user_id = Users.objects.filter(username=user).values_list("id", flat=True).first()
+        tasks = Tasks.objects.filter(user_id=user_id)
+        context['tasks'] = tasks
+        
+        return context
 
 
-def signup(request):
+class UserLoginView(LoginView):
 
-    if request.method == "POST":
-        form = UserSignupForm(data=request.POST)
-        if form.is_valid():
+    template_name = 'todo_list/index.html'
+    form_class = UserLoginForm
+    next_page = reverse_lazy('todo_list:todo')
+
+
+
+class UserSignUpView(CreateView):
+    template_name = 'todo_list/signup.html'
+    form_class = UserSignupForm
+    success_url = reverse_lazy('todo_list:todo')
+
+    def form_valid(self, form):
+        user = form.instance
+
+        if user:
             form.save()
-            user = form.instance
-            auth.login(request, user)
-            return HttpResponseRedirect(reverse("todo_list:todo"))
-    else:
-        form = UserSignupForm()
-
-    context = {"form": form}
-    return render(request, "todo_list/signup.html", context)
+            auth.login(self.request, user)
+            return redirect(self.success_url)
 
 
 @login_required
@@ -62,6 +59,7 @@ def logout(request):
     # messages.success(request, f"{request.user.username}, You logged out")
     auth.logout(request)
     return redirect(reverse("todo_list:index"))
+
 
 
 def add_task(request):
