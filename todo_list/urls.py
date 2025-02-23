@@ -8,6 +8,6 @@ urlpatterns = [
     path("todo", views.TodoView.as_view(), name="todo"),
     path("signup", views.UserSignUpView.as_view(), name="signup"),
     path("logout", views.logout, name="logout"),
-    path("add_task", views.add_task, name="add_task"),
-    path("remove_task/<int:task_id>/", views.remove_task, name="remove_task"),
+    path("add_task", views.TaskAddView.as_view(), name="add_task"),
+    path("remove_task/<int:task_id>/", views.TaskDeleteView.as_view(), name="remove_task"),
 ]

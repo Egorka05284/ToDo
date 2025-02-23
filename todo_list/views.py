@@ -1,10 +1,10 @@
-from django.contrib import auth, messages
+from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.http.response import HttpResponse as HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, FormView
 from todo_list.forms import NewTaskForm, UserLoginForm, UserSignupForm
 from todo_list.models import Users, Tasks
 
@@ -56,40 +56,38 @@ class UserSignUpView(CreateView):
 
 @login_required
 def logout(request):
-    # messages.success(request, f"{request.user.username}, You logged out")
     auth.logout(request)
     return redirect(reverse("todo_list:index"))
 
+class TaskAddView(FormView):
+    template_name = 'todo_list/add_task.html'
+    form_class = NewTaskForm
 
-
-def add_task(request):
-
-    if not request.user.is_authenticated:
-        return redirect(reverse("todo_list:index"))
-    form = NewTaskForm()
-    if request.method == "GET":
+    def get(self, request) -> HttpResponse:
+        if not self.request.user.is_authenticated:
+            return redirect(reverse('todo_list:index'))
         form = NewTaskForm()
 
-    if request.method == "POST":
-        form = NewTaskForm(request.POST)
-        if form.is_valid():
-            form = form.cleaned_data
-            object = Tasks()
-            object.task = form["task"]
-            object.priority = form["priority"]
-            object.user_id = (
-                Users.objects.filter(username=request.user)
-                .values_list("id", flat=True)
-                .first()
-            )
-            object.save()
-            return redirect(reverse("todo_list:todo"))
-    return render(request, "todo_list/addtask.html", {"form": form})
+        return render(self.request, "todo_list/addtask.html", {"form": form})
 
+    def form_valid(self, form):
+        form = form.cleaned_data
+        object = Tasks()
+        object.task = form["task"]
+        object.priority = form["priority"]
+        object.user_id = (
+            Users.objects.filter(username=self.request.user)
+            .values_list("id", flat=True)
+            .first()
+        )
+        object.save()
+        return redirect(reverse("todo_list:todo"))
+    
 
-def remove_task(request, task_id):
+class TaskDeleteView(TemplateView):
+    
+    def get(self, request, task_id):
+        task = Tasks.objects.get(id=task_id)
+        task.delete()
 
-    task = Tasks.objects.get(id=task_id)
-    task.delete()
-
-    return redirect(request.META["HTTP_REFERER"])
+        return redirect(self.request.META["HTTP_REFERER"])
