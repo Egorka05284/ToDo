@@ -25,5 +25,5 @@ urlpatterns = [
     path("todo/", include("todo_list.urls", namespace="todo_list")),
 ]
 
-# if DEBUG:
-#     urlpatterns += [path("__debug__/", include("debug_toolbar.urls")),]
+if DEBUG:
+    urlpatterns += [path("__debug__/", include("debug_toolbar.urls")),]

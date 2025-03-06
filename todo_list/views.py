@@ -24,8 +24,7 @@ class TodoView(TemplateView):
     def get_context_data(self, **kwargs) -> dict:
         
         context = super().get_context_data(**kwargs)
-        user = self.request.user
-        user_id = Users.objects.filter(username=user).values_list("id", flat=True).first()
+        user_id = self.request.user.id
         tasks = Tasks.objects.filter(user_id=user_id)
         context['tasks'] = tasks
         
